@@ -41,14 +41,14 @@ async function modifyPdf() {
     const fields = document.forms[0].elements;
     const config = CONFIG[fields.template.value];
 
-    const url = `/${fields.template.value}.pdf`;
+    const url = `./${fields.template.value}.pdf`;
     const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer())
 
     // Load a PDFDocument from the existing PDF bytes
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
 
     // Embed the Helvetica font
-    const fontBytes = await fetch('/calibri.ttf').then((res) => res.arrayBuffer())
+    const fontBytes = await fetch('./calibri.ttf').then((res) => res.arrayBuffer())
 
 
     pdfDoc.registerFontkit(fontkit)
