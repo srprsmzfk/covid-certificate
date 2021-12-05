@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+    <script src="https://unpkg.com/@pdf-lib/fontkit/dist/fontkit.umd.min.js"></script>
+    <script src="/script.js"></script>
+</head>
+
+<body>
+    <form>
+        <label for="date">Дата</label>
+        <input type="text" id="date" name="date">
+        <br>
+        <br>
+
+        <label for="name">ФИО</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <br>
+
+        <label for="age">Дата рождения</label>
+        <input type="text" id="age" name="age">
+        <br>
+        <br>
+
+        <input type="radio" id="m" name="sex" value="Чоловіча" checked>
+        <label for="m">Male</label>
+        <input type="radio" id="f" name="sex" value="Жіноча">
+        <label for="f">Female</label>
+        <br>
+        <br>
+
+        <input type="radio" id="dila" name="template" value="dila" checked>
+        <label for="dila">Dila</label>
+        <br>
+        <br>
+
+    </form>
+    <button onclick="modifyPdf()">Download</button>
+</body>
+
+</html>
