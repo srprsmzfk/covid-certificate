@@ -96,5 +96,16 @@ async function modifyPdf() {
     const pdfBytes = await pdfDoc.save();
     const blob = new Blob([pdfBytes], {type: 'application/pdf'});
 
-    download(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
+    downloadFile(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf` );
+
+    // download(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
+}
+
+function downloadFile(blob, fileName) {
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    document.body.append(link);
+    link.click();
+    link.remove();
 }
