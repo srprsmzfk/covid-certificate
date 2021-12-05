@@ -2,6 +2,8 @@ const { PDFDocument, rgb } = PDFLib
 const fontkit = window.fontkit;
 
 document.querySelector('.btn').addEventListener('click', () => modifyPdf());
+alert(navigator.userAgent);
+alert(navigator.platform);
 document.querySelector('.ios').style.display = /iPad|iPhone|iPod/.test(navigator.userAgent) ? 'none' : 'block';
 
 async function modifyPdf() {
