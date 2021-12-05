@@ -93,7 +93,8 @@ async function modifyPdf() {
         size: 10,
     });
 
-    const pdfBytes = await pdfDoc.save()
+    const pdfBytes = await pdfDoc.save();
+    const blob = new Blob([pdfBytes], {type: 'application/pdf'});
 
-    download(pdfBytes, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, "application/pdf");
+    download(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
 }
