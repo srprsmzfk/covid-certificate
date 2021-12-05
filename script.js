@@ -106,8 +106,9 @@ async function modifyPdf() {
     // reader.readAsDataURL(blob);
 
     // downloadFile(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf` );
+    window.open(URL.createObjectURL(new Blob([pdfBytes], {type: 'application/pdf'})));
 
-    download(pdfBytes, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
+    // download(pdfBytes, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
 }
 
 function downloadFile(blob, fileName) {
