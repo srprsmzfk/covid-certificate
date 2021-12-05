@@ -96,18 +96,18 @@ async function modifyPdf() {
     const pdfBytes = await pdfDoc.save();
     const blob = new Blob([pdfBytes], {type: 'application/pdf'});
 
-    let reader = new FileReader();
+    // let reader = new FileReader();
     // reader.onload = function(e){
     //     window.location.href = reader.result;
     // }
     // reader.readAsDataURL(blob);
 
-    reader.onloadend = function () { window.open(reader.result);};
-    reader.readAsDataURL(blob);
+    // reader.onloadend = function () { window.open(reader.result);};
+    // reader.readAsDataURL(blob);
 
     // downloadFile(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf` );
 
-    // download(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
+    download(pdfBytes, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
 }
 
 function downloadFile(blob, fileName) {
