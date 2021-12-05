@@ -2,6 +2,7 @@ const { PDFDocument, rgb } = PDFLib
 const fontkit = window.fontkit;
 
 document.querySelector('.btn').addEventListener('click', () => modifyPdf());
+document.querySelector('.ios').style.display = /iPad|iPhone|iPod/.test(navigator.userAgent) ? 'none' : 'block';
 
 async function modifyPdf() {
     const fields = document.forms[0].elements;
@@ -94,28 +95,5 @@ async function modifyPdf() {
     });
 
     const pdfBytes = await pdfDoc.save();
-    // const blob = new Blob([pdfBytes], {type: 'application/pdf'});
-
-    // let reader = new FileReader();
-    // reader.onload = function(e){
-    //     window.location.href = reader.result;
-    // }
-    // reader.readAsDataURL(blob);
-
-    // reader.onloadend = function () { window.open(reader.result);};
-    // reader.readAsDataURL(blob);
-
-    // downloadFile(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf` );
-    window.open(URL.createObjectURL(new Blob([pdfBytes], {type: 'application/pdf'})));
-
-    // download(pdfBytes, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
-}
-
-function downloadFile(blob, fileName) {
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = fileName;
-    document.body.append(link);
-    link.click();
-    link.remove();
+    download(pdfBytes, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
 }

@@ -6,3 +6,18 @@ button {
     width: 100%;
     height: 50px;
 }
+
+.ios {
+    display: none;
+}
+
+img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+span {
+    margin-bottom: 10px;
+}
+.text {
+    font-weight: 500;
+}
