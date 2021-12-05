@@ -31,7 +31,10 @@ const CONFIG = {
             },
         },
     }
-}
+};
+
+document.querySelector('.download').addEventListener('click', () => modifyPdf());
+
 
 async function modifyPdf() {
     // Fetch an existing PDF document
