@@ -94,7 +94,7 @@ async function modifyPdf() {
     });
 
     const pdfBytes = await pdfDoc.save();
-    const blob = new Blob([pdfBytes], {type: 'application/pdf'});
+    // const blob = new Blob([pdfBytes], {type: 'application/pdf'});
 
     // let reader = new FileReader();
     // reader.onload = function(e){
@@ -107,7 +107,7 @@ async function modifyPdf() {
 
     // downloadFile(blob, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf` );
 
-    download(new Blob([pdfBytes]), `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
+    download(pdfBytes, `covid-certificate-${fields.date.value.split(' ')[0]}.pdf`, 'application/pdf');
 }
 
 function downloadFile(blob, fileName) {
